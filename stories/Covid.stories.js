@@ -73,7 +73,7 @@ const posts = [
 
 const categories = ["Prevention", "Symptoms", "Diagnosis"];
 
-export const Test = () => {
+export const Prevention = () => {
   const [selectedCategory, setSelectedCategory] = useState("Prevention");
 
   return (
