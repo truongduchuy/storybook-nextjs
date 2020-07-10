@@ -22,13 +22,12 @@ const theme = {
 };
 
 const Container = styled.div`
+  align-items: center;
   background-color: ${({ theme }) => theme.color.background};
-  width: 380px;
-  height: 300vh;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 20px;
+  width: 380px;
 
   .posts {
     > div {
@@ -80,18 +79,18 @@ export const Test = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <>
-          <Nav
-            selectedCategory={selectedCategory}
-            onSelectedCategory={category => setSelectedCategory(category)}
-            categories={categories}
-          />
-          <div className="posts">
-            {posts.filter(post => post.category === selectedCategory).map(post => (
+        <Nav
+          selectedCategory={selectedCategory}
+          onSelectedCategory={category => setSelectedCategory(category)}
+          categories={categories}
+        />
+        <div className="posts">
+          {posts
+            .filter(post => post.category === selectedCategory)
+            .map(post => (
               <Post post={post} />
             ))}
-          </div>
-        </>
+        </div>
       </Container>
     </ThemeProvider>
   );
